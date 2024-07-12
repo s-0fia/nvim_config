@@ -19,7 +19,7 @@ Use this unless your need to clone to a specific directory
 If you're using `powershell.exe`
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git $env:USERPROFILE\AppData\Local\nvim\
+git clone https://github.com/s-0fia/nvim_config.git $env:USERPROFILE\AppData\Local\nvim\
 ```
 
 *Note*: For windows installation of nvim, `clang`/LLVM is the best compiler to make nvim work!
