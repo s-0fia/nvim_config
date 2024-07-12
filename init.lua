@@ -412,20 +412,25 @@ require('lazy').setup {
           --
           --
 
+          -- If windows add option to run idle based on the run idle batch file
+          -- which must exist to work
           if vim.loop.os_uname().sysname == 'Windows_NT' then
             local run_idle_on_file = ':!' .. vim.fn.stdpath 'config' .. '\\run_idle.bat ' .. vim.fn.expand '%' .. '<CR>'
             map('<leader>i', run_idle_on_file, 'Run [I]DLE on current file')
           end
 
+          -- Toggle inlay hints mapping
           local toggle_inlay = function()
             local filter = { bufnr = 0 }
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter))
           end
           map('<leader>I', toggle_inlay, 'Toggle [I]nlay Hints')
 
+          -- Paste from 0 buffer (i.e. the recently yanked from)
           map('<leader>p', '"0p', '[P]aste infront from 0 buffer')
           map('<leader>P', '"0P', '[P]aste behind from 0 buffer')
 
+          -- Various Delete to null buffer``
           map('<leader>dd', '"_dd', '[D]elete line to null buffer')
           map('<leader>diw', '"_diw', '[Diw] to null buffer')
           map('<leader>daw', '"_daw', '[Daw] to null buffer')
