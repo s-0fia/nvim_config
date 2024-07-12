@@ -1,5 +1,9 @@
 # kickstart.nvim
 
+## Custom Additions
+
+For usage on windows, the file `run_idle.bat` should exist to launch idle on the current buffer.
+
 ## Introduction
 
 A starting point for Neovim that is:
