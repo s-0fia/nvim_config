@@ -436,6 +436,24 @@ require('lazy').setup {
           map('<leader>daw', '"_daw', '[Daw] to null buffer')
           map('<leader>d$', '"_d$', '[D$] to null buffer')
 
+          -- Open terminal/run
+          local run_proj = function()
+            local file_in_buffer = vim.fn.expand '%'
+            local extension = string.gmatch(file_in_buffer, '([^.]+)$')()
+            local what_to_do = '# file extension behaviour not set'
+
+            if extension == 'rs' then
+              what_to_do = 'cargo run'
+            elseif extension == 'py' then
+              what_to_do = 'python3 ' .. file_in_buffer
+            end
+
+            return '<c-w>v:term<cr>i' .. what_to_do .. '<cr>'
+          end
+          map('<leader>tv', '<c-w>v:term<cr>i', 'Open [T]erminal in [V]ertical split with insert')
+          map('<leader>ts', '<c-w>s:term<cr>i', 'Open [T]erminal in Horizontal [S]plit with insert')
+          map('<leader>tr', run_proj(), 'Open [T]erminal and try run project')
+
           -- Custom bindings end
           --
           --
