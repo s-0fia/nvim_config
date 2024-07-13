@@ -430,7 +430,7 @@ require('lazy').setup {
           map('<leader>p', '"0p', '[P]aste infront from 0 buffer')
           map('<leader>P', '"0P', '[P]aste behind from 0 buffer')
 
-          -- Various Delete to null buffer``
+          -- Various Delete to null buffer
           map('<leader>dd', '"_dd', '[D]elete line to null buffer')
           map('<leader>diw', '"_diw', '[Diw] to null buffer')
           map('<leader>daw', '"_daw', '[Daw] to null buffer')
