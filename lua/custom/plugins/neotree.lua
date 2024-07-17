@@ -10,5 +10,10 @@ return {
   },
   config = function()
     require('neo-tree').setup {}
+
+    -- If no file is opened then open Neotree
+    if vim.fn.expand '%' == '' then
+      vim.cmd 'Neotree'
+    end
   end,
 }
