@@ -1,11 +1,16 @@
 --  See `:help vim.keymap.set()`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Inline a function with options
+local inline = function(func, option)
+  return function()
+    return func(option)
+  end
+end
+
 -- Diagnostic keymaps
--- vim.keymap.set('n', '[d', vim.diagnostic.jump { count = -1 }, { desc = 'Go to previous [D]iagnostic message' })
--- vim.keymap.set('n', ']d', vim.diagnostic.jump { count = 1 }, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '[d', inline(vim.diagnostic.jump, { count = -1 }), { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', inline(vim.diagnostic.jump, { count = 1 }), { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -37,10 +42,6 @@ vim.keymap.set('t', '<C-Up>', '<C-\\><C-n><C-w><C-k>', { desc = 'Move focus to t
 --
 -- NOTE: [[ Custom Bindings Start here ]]
 --
-
-local norm_map = function(keys, func, desc)
-  vim.keymap.set('n', keys, func, { desc = desc })
-end
 
 -- Paste from 0 buffer (i.e. the recently yanked from)
 vim.keymap.set('n', '<leader>p', '"0p', { desc = '[P]aste infront from 0 buffer' })
