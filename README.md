@@ -9,7 +9,13 @@ For usage on windows, the file `run_idle.bat` should exist to launch idle on the
 ### Linux
 
 ```sh
-git repo clone https://github.com/s-0fia/nvim_config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/s-0fia/nvim_config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+```
+
+### Mac
+
+```sh
+mkdir ~/.config/nvim && git clone https://github.com/s-0fia/nvim_config.git ~/.config/nvim
 ```
 
 ### Windows
