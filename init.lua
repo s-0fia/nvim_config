@@ -1,23 +1,22 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- [[ Vim Options ]]
-require 'options'
+require("options")
 
 -- [[ Key Bindings ]]
-require 'bindings'
+require("bindings")
 
 -- [[ Autocommands ]]
-require 'autocommands'
+require("autocommands")
 
 -- [[ Lazy Bootstrapping ]]
-require 'lazy-bootstrap'
+require("lazy-bootstrap")
 
 -- [[ Setup Lazy Plugins ]]
-require 'lazy-plugins'
+require("lazy-plugins")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
